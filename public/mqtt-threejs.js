@@ -19,6 +19,23 @@ camera.lookAt(scene.position);
 renderer.setSize(width, height);
 three_view.appendChild(renderer.domElement);
 
+// TEST CUBE
+{
+    let geometry = new THREE.BoxGeometry(1, 1, 1);
+    let material = new THREE.MeshLambertMaterial({
+        color: 0xff0000
+    });
+    let mesh = new THREE.Mesh(geometry, material);
+    //scene.add(mesh);
+}
+
+let light = new THREE.DirectionalLight(0xAAAAAA, 1.5);
+light.position.x = 10;
+light.position.y = 10;
+light.position.z = 10;
+light.lookAt = new THREE.Vector3(0,0,0); // scene.position
+scene.add(light);
+
 
 const animate = () => {
     requestAnimationFrame(animate);
