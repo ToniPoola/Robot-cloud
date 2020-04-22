@@ -25,5 +25,15 @@ const animate = () => {
     renderer.render(scene, camera);
 };
 animate();
+
+const resize = () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+};
+
+window.onresize = resize;
 //camera setup
 
