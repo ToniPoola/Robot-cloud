@@ -57,11 +57,13 @@ const load_stl = (url) => {
 };
 
 const load_geometries = async () => {
-    let geometry = await load_stl('./FANUC_R2000iA165F-STL');
+    let geometry = await load_stl('./FANUC_R2000iA165F-STL/BASE.stl');
     let mesh = new THREE.Mesh(geometry, dark);
     mesh.geometry.scale(0.001,0.001,0.001);
     scene.add(mesh);
 };
+
+load_geometries();
 
 let dark = new THREE.MeshLambertMaterial({
     color: 0x111111
